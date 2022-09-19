@@ -106,8 +106,6 @@ skip-character-set-client-handshake
 thread_stack=256K
 
 
-
-
 ## Conneciton ##
 max_connections=1000
 max_connect_errors=1000000
@@ -129,12 +127,12 @@ slow_query_log_file=$logdir/slow.log
 slow_query_log
 long_query_time=3
 log-output=FILE
+relay_log=mysql-relay-bin
+relay_log_purge=1
 
 
 ##function
 log-bin-trust-function-creators=1
-
-
 
 
 [mysqld_safe]
@@ -187,7 +185,7 @@ else
 fi
 
 
-tar -xvf ${install}
+tar -xvf ${install} -C /root/
 
 
 mv /root/$DBFILE $basedir
